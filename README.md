@@ -1,68 +1,82 @@
 # Two Player Zero Sum Matrix Game Solver
-A Python application for solving matrix games using game theory principles, complete with a graphical user interface (GUI). 
-This project provides a simple way to input and analyze two-player zero-sum games.
+
+A Python application for solving matrix games with a simple GUI. 
 
 ## Getting Started
-Follow these steps:
 
 ### Prerequisites
-Ensure you have Python 3.x installed. The project's dependencies are listed in requirements.txt. You can install them using pip:
 
-```pip install -r requirements.txt```
+Ensure you have Python 3.x installed. The dependencies are listed in `requirements.txt`. You can install them using pip:
 
-This project relies on the **Pyomo** optimization package. While you can edit the code in any IDE, Pyomo often requires a specific environment setup to properly find its solvers. 
-For this reason, it is best to run the program from an **Anaconda-managed** terminal to avoid errors related to missing dependencies or incorrect system paths.
+```bash
+pip install -r requirements.txt
+```
+
+This project relies on the **Pyomo** optimization package. While you can edit the code in any IDE, Pyomo often requires a specific environment setup to properly find its solvers. For this reason, it is best to run the program from an **Anaconda-managed** terminal to avoid errors related to missing dependencies or incorrect system paths.
 
 ### Running the Application
-In the Anaconda Navigator, check if the **Pyomo** package is installed. In the "Environments" section, search for the **Pyomo** package and install it. Then launch a Python IDE and run the following code in your terminal: 
 
-```python main.py```
+In Anaconda Navigator, check whether the **Pyomo** package is installed. In the "Environments" section, search for the **Pyomo** package and install it if needed. Then launch a Python IDE and run:
+
+```bash
+python main.py
+```
 
 ### Usage
-The application provides a GUI to easily solve a matrix game. Simply follow these steps:
 
-1. Follow the steps outlined in the above section, "Running the Application". 
+The application provides a GUI to easily solve a matrix game.
 
-2. Enter the matrix dimensions (row first, and then the column) and enter if the row player is the maximiser or the minimiser.
-   Usually, for a two-player, zero-sum game, the matrix represents the payoffs for the row player - so in this case, the row player is the maximiser.
-   After entering the inputs, click "Enter".
+1. Run the application as described above.
+2. Enter the matrix dimensions (rows first, then columns), and specify whether the row player is the maximiser or the minimiser. Usually, for a two-player, zero-sum game, the matrix represents the payoffs for the row player — so in this case, the row player is the maximiser. After entering the inputs, click **Enter**.
+3. The application will display a scrollable canvas containing entry fields for the payoffs. You may need to scroll horizontally and vertically to enter all the values.
+4. If you need to change the matrix dimensions or the maximiser/minimiser setting, click **Go Back!**. Otherwise, once the matrix values are entered, press **Enter**.
+5. The application will show the value of the matrix game in a boxed output region starting with "Output - Game Value...". The blue **Open csv file** link lets you view the optimal probabilities for each strategy.
 
-3. Now, the application will display a scrollable area (canvas) containing entry fields to enter the payoffs.
-   You may have to scroll horizontally and vertically to enter all the values.
+The application will then display the full solution, including the optimal strategies for both players and the value of the game.
 
-4. If you need to change the matrix dimensions or if the row player is the maximiser or miniser, you can click "Go Back!".
-   Otherwise, once the matrix values are inputted press "Enter".
+## Example
 
-5. Finally, the application will show the value of the matrix game in a smaller boxed region starting with "Output - Game Value ... ".
-   The blue link with "Open csv file" allows you to take a look at the optimal probabilities of each strategy. 
-   
-The application will then display the solution, including the optimal strategies for both players and the value of the game.
+Suppose we have the following matrix:
 
-### Example Matrix:
-Suppose we have the following matrix. 
-
-$$ 
+$$
 \begin{pmatrix}
 2 & 3 \\
 4 & 3
-\end{pmatrix} $$
+\end{pmatrix}
+$$
 
-Assuming the row player is the maximiser, the row player will choose strategy 2 (the second row) since $4 > 2$ and $3 \geq 3$. If the row player chooses the second row, the column player will choose the second column, so the value of the game is $3$. Each player chooses the second strategy with probability $1$. Once you've run the program, you'll see this: 
+Assuming the row player is the maximiser, the row player will choose strategy *2* (the second row) since $4 > 2$ and $3 \geq 3$. If the row player chooses the second row, the column player will choose the second column, so the value of the game is $3$. Each player chooses the second strategy with probability $1$.
 
-![](screenshots/input_fields_1_none.png)
+Once you've run the program, you'll see this:
 
-We can enter the matrix dimensions ($2 \times 2$) and "max" in the last entry field. 
+<p align="center">
+  <img src="screenshots/input_fields_1_none.png" alt="Empty input fields" width="500">
+</p>
 
-![](screenshots/input_fields_1_filled.png)
+We can enter the matrix dimensions ($2 \times 2$) and "max" in the last entry field.
+
+<p align="center">
+  <img src="screenshots/input_fields_1_filled.png" alt="Filled-in dimension fields" width="500">
+</p>
 
 Pressing "Enter" leads to:
 
-![](screenshots/input_fields_2_filled.png)
+<p align="center">
+  <img src="screenshots/input_fields_2_filled.png" alt="Matrix payoff entry grid" width="500">
+</p>
 
 Now we can enter the values of the matrix and hit "Enter":
 
-![](screenshots/results_panel.png)
+<p align="center">
+  <img src="screenshots/results_panel.png" alt="Results panel showing game value" width="500">
+</p>
 
-The value of the game is $3$, as we thought. Opening up the csv file gives:
+The value of the game is $3$, as expected. Opening the CSV file gives:
 
-![](screenshots/csv.png)
+<p align="center">
+  <img src="screenshots/csv.png" alt="CSV output of optimal strategy probabilities" width="500">
+</p>
+
+## About
+
+This is an interactive solver for n by n matrix games.
