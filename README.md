@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 This project relies on the **Pyomo** optimization package. While you can edit the code in any IDE, Pyomo often requires a specific environment setup to properly find its solvers. For this reason, it is best to run the program from an **Anaconda-managed** terminal to avoid errors related to missing dependencies or incorrect system paths.
 
-### Running the Application
+### Running the application
 
 In Anaconda Navigator, check whether the **Pyomo** package is installed. In the "Environments" section, search for the **Pyomo** package and install it if needed. Then launch a Python IDE and run:
 
@@ -71,12 +71,11 @@ Now we can enter the values of the matrix and hit "Enter":
   <img src="screenshots/results_panel.png" alt="Results panel showing game value" width="500">
 </p>
 
-The value of the game is $3$, as expected. Opening the CSV file gives:
+The value of the game is $3$, as expected. Opening the csv file gives:
 
 <p align="center">
-  <img src="screenshots/csv.png" alt="CSV output of optimal strategy probabilities" width="500">
+  <img src="screenshots/csv.png" alt="csv output of optimal strategy probabilities" width="500">
 </p>
 
-## About
-
-This is an interactive solver for n by n matrix games.
+## How it works
+The solver formulates the matrix game as a linear program (LP) built with Pyomo and solved using GLPK. For the row player, it maximizes the guaranteed game value $v$ subject to the constraint that the expected payoff against every column-player strategy is at least $v$, and that the row player's strategy probabilities are non-negative and sum to 1. The column player's optimal strategy is found by solving the same LP on the transposed payoff matrix. The resulting strategies and game value are displayed in the GUI and written to **output.csv**.
