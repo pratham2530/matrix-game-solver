@@ -2,7 +2,7 @@
 
 A Python application for solving matrix games with a simple GUI. 
 
-## Getting Started
+## Getting started
 
 ### Prerequisites
 
