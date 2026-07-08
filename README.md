@@ -1,6 +1,4 @@
-# Two Player Zero Sum Matrix Game Solver
-
-A Python application for solving matrix games with a simple GUI. 
+# Two player zero-sum matrix game solver
 
 ## Getting started
 
@@ -12,7 +10,15 @@ Ensure you have Python 3.x installed. The dependencies are listed in `requiremen
 pip install -r requirements.txt
 ```
 
-This project relies on the **Pyomo** optimization package. While you can edit the code in any IDE, Pyomo often requires a specific environment setup to properly find its solvers. For this reason, it is best to run the program from an **Anaconda-managed** terminal to avoid errors related to missing dependencies or incorrect system paths.
+Note: requirements.txt covers the Python packages, but the GLPK solver itself is a separate system-level dependency which can be installed via conda. =
+
+This project relies on the Pyomo optimization package and the GLPK solver. While you can edit the code in any IDE, Pyomo needs to be able to find the GLPK solver executable on your system path. The most reliable way to get both installed correctly is via conda:
+
+```bash
+conda install -c conda-forge pyomo glpk
+```
+
+If you don't have Anaconda installed, you can get it from anaconda.com. Once Pyomo and GLPK are installed in your conda environment, activate that environment and run the program from its terminal.
 
 ### Running the application
 
