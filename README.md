@@ -28,7 +28,12 @@ If you don't have Anaconda or Miniconda, you can get either from
 ### Running the application
 
 Run from the project root specifically since `main.py` imports from the `gui` and
-`logic` packages. 
+`logic` packages: 
+
+```bash
+conda activate matrixgame
+python main.py
+```
 
 ### Usage
 
@@ -41,10 +46,10 @@ Run from the project root specifically since `main.py` imports from the `gui` an
 3. The application will display a scrollable canvas containing entry fields for
    the payoffs. You may need to scroll horizontally and vertically to enter all
    the values.
-5. If you need to change the matrix dimensions or the maximiser/minimiser
+4. If you need to change the matrix dimensions or the maximiser/minimiser
    setting, click **Go Back!**. Once the matrix values are entered
    press **Enter**.
-6. The application will show the value of the matrix game in a boxed output
+5. The application will show the value of the matrix game in a boxed output
    region starting with "Output - Game Value...". The blue **Open csv file**
    link lets you view the optimal probabilities for each strategy.
 
@@ -121,8 +126,10 @@ For a maximising row player, the LP maximises the guaranteed value $v$ subject
 to the expected payoff against every column-player strategy being at least $v$,
 with the strategy probabilities non-negative and summing to 1.
 
-In this case, the column player is solved with the *same* LP applied to the **negated**
+Then, the column player is solved with the *same* LP applied to the **negated**
 transpose. The negation is needed since the column player is now the minimising player. 
+
+For a minimising column player, the reverse of the above occurs. 
 
 ## Troubleshooting
 
