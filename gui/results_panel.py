@@ -5,8 +5,12 @@ It displays the game value and csv output containing the mixed strategies for ea
 
 from tkinter import Frame, Label, Button, messagebox
 from typing import Dict, Any, TypedDict, List
+
 import os
+import subprocess
+import sys
 import numpy as np
+
 from logic.create_csv import write_csv
 
 
@@ -199,9 +203,11 @@ class Results_Panel(Frame):
         try:
             if os.name == "nt":
                 os.startfile(self.csv_path)
+            elif sys.platform == "darwin":
+                subprocess.run(["open", self.csv_path], check=True)
             else:
-                raise OSError("CSV opening currently only supported on Windows")
-        except OSError as e:
+                subprocess.run(["xdg-open", self.csv_path], check=True)
+        except (OSError, subprocess.SubprocessError) as e:
             messagebox.showerror("Error", f"Could not open csv file: {e}")
 
     def restart(self) -> None:
