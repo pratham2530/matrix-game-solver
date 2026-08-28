@@ -1,8 +1,7 @@
 # Two-player zero-sum matrix game solver
 
 An interactive solver for two-player zero-sum matrix games. Enter an $n \times m$
-payoff matrix through a GUI and obtain the value of the game with the optimal
-mixed strategies for both players.
+and obtain the value of the game with the optimal mixed strategies for both players.
 
 ## Getting started
 
@@ -129,7 +128,7 @@ with the strategy probabilities non-negative and summing to 1.
 Then, the column player is solved with the *same* LP applied to the **negated**
 transpose. The negation is needed since the column player is now the minimising player. 
 
-For a minimising column player, the reverse of the above occurs. 
+For a minimising row player, the reverse of the above occurs. 
 
 ## Troubleshooting
 
