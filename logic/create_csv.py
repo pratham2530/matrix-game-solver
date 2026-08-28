@@ -11,7 +11,7 @@ import pandas as pd
 from solver import solve_game
 
 
-def write_csv(matrix: pd.DataFrame) -> List[Union[pd.DataFrame, str, str]]:
+def write_csv(matrix: pd.DataFrame, maxormin) -> List[Union[pd.DataFrame, str, str]]:
     """
     Generates a CSV file containing game solutions for both players.
 
@@ -31,11 +31,18 @@ def write_csv(matrix: pd.DataFrame) -> List[Union[pd.DataFrame, str, str]]:
         >>> result = write_csv(payoff_matrix)
         >>> print(result[1])  # Prints "Game Value: 0.25"
     """
+    maxormin = maxormin.lower()
     matrix_transposed = matrix.T
 
-    # Solve for both players
-    row_value, *row_strategies = solve_game(matrix)
-    _, *col_strategies = solve_game(-matrix_transposed)
+    if maxormin == "max": 
+        # Solve for both players
+        game_value, *row_strategies = solve_game(matrix)
+        _, *col_strategies = solve_game(-matrix_transposed)
+
+    else: 
+        game_value, *col_strategies = solve_game(matrix_transposed)
+        _, *row_strategies = solve_game(-matrix) 
+        
 
     # Prepare data
     rows = [
@@ -54,4 +61,4 @@ def write_csv(matrix: pd.DataFrame) -> List[Union[pd.DataFrame, str, str]]:
     )
     df.to_csv("output.csv", index=False)
 
-    return [df, f"Game Value: {row_value}", os.path.abspath("output.csv")]
+    return [df, f"Game Value: {game_value}", os.path.abspath("output.csv")]
