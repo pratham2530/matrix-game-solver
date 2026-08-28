@@ -6,9 +6,9 @@ window positioning.
 
 from tkinter import Tk
 
-from input_panel_1 import Input_Panel_1
-from input_panel_2 import Input_Panel_2
-from results_panel import Results_Panel
+from gui.input_panel_1 import Input_Panel_1
+from gui.input_panel_2 import Input_Panel_2
+from gui.results_panel import Results_Panel
 
 
 class App(Tk):
