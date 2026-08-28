@@ -7,7 +7,7 @@ from tkinter import Frame, Label, Button, messagebox
 from typing import Dict, Any, TypedDict, List
 import os
 import numpy as np
-from create_csv import write_csv
+from logic.create_csv import write_csv
 
 
 class WidgetGroups(TypedDict):
