@@ -1,4 +1,16 @@
-tkinter
-pandas
 numpy
-pyomo.environ
+pandas
+pyomo
+
+# Two dependencies are NOT installable from PyPI and are not listed above:
+#
+#   tkinter  - part of the Python standard library. Included with the
+#              python.org and Anaconda installers. On Debian/Ubuntu, install
+#              it separately with:  sudo apt install python3-tk
+#
+#   glpk     - the LP solver itself, a compiled executable (glpsol) that Pyomo
+#              calls out to. pip cannot install it. Use conda:
+#                  conda install -c conda-forge glpk
+#
+# See the README for the recommended conda setup, which installs everything
+# above in one command.
