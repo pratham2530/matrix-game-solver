@@ -8,7 +8,7 @@ from typing import List, Union
 
 import pandas as pd
 
-from solver import solve_game
+from logic.solver import solve_game
 
 
 def write_csv(matrix: pd.DataFrame, maxormin) -> List[Union[pd.DataFrame, str, str]]:
