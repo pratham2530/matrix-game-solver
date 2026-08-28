@@ -35,7 +35,7 @@ def write_csv(matrix: pd.DataFrame) -> List[Union[pd.DataFrame, str, str]]:
 
     # Solve for both players
     row_value, *row_strategies = solve_game(matrix)
-    _, *col_strategies = solve_game(matrix_transposed)
+    _, *col_strategies = solve_game(-matrix_transposed)
 
     # Prepare data
     rows = [
