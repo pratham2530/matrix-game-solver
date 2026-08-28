@@ -177,9 +177,6 @@ class Results_Panel(Frame):
             f"Row player: {self.maxormin}imiser"
         )
 
-        if self.maxormin == "min":
-            self.matrix = self.matrix.T
-
         self.run_solver(self.matrix)
 
     def run_solver(self, matrix: np.ndarray) -> None:
@@ -189,7 +186,7 @@ class Results_Panel(Frame):
         Args:
             matrix: The game matrix to solve
         """
-        out = write_csv(matrix)
+        out = write_csv(matrix, self.maxormin)
         self.widgets["labels"]["output"].config(text=f"Output - {out[1]}")
         self.csv_path = out[2]
         self.widgets["labels"]["csv_link"].grid()
